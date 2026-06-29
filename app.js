@@ -90,33 +90,64 @@ const comments = [
 
 //ex 1
 let veryOldInventors = inventors.filter(function(inventor) {
-    return inventor.year >= 1500 && inventor.year <= 1599
+  return inventor.year >= 1500 && inventor.year <= 1599
 })
 console.log('Exercise 1 my result: ', veryOldInventors);
 
 //ex 2
 let inventorNames = inventors.map(function(firstLastNames) {
-    return `first: "${firstLastNames.first}", last: "${firstLastNames.last}"`
+  return `first: "${firstLastNames.first}", last: "${firstLastNames.last}"`
 })
 console.log('Exercise 2 my result: ', inventorNames);
 
 //ex 3
 let sortedByBirthYear = inventors.sort(function(x, y) {
-    return x.year - y.year
+  return x.year - y.year
 })
 console.log('Exercise 3 my result: ', sortedByBirthYear);
 
 //ex 4
 let inventorNamedAda = inventors.find(function(fName) {
-    return fName.first === 'Ada'
+  return fName.first === 'Ada'
 })
 console.log('Exercise 4 my result: ', inventorNamedAda);
 
 //ex 5
-let firstLast = people.map(function(peopleName){
-    const splitPeople = people.split(',')
-    const firstName = splitPeople[0]
-    const lastName = splitPeople[1]
-    return firstName, lastName
+let firstLast = people.map(function(peopleName) {
+  const splitPeople = peopleName.split(' ')
+  const lastName = splitPeople[0]
+  const firstName = splitPeople[1]
+  return  `${firstName} ${lastName}`
 })
 console.log('Exercise 5 my result: ', firstLast);
+
+//ex 6 
+let isAdultPresent = null
+let isAdult = devs.some(function(adultAge){
+  return adultAge.year >= 18
+})
+isAdultPresent = isAdult
+console.log('Exercise 6 my result: ', isAdultPresent);
+
+//ex 7 
+let isEveryone19OrOlder = null
+let currentYear = 2026
+let everyone19Older = devs.every(function(age19orOlder) {
+  return (currentYear-age19orOlder) >= 19
+})
+isEveryone19OrOlder = everyone19Older
+console.log('Exercise 7 my result: ', isEveryone19OrOlder);
+
+//ex 8 
+let commentById = comments.find(function(comment) {
+  return comment.id === 823423
+})
+console.log('Exercise 8 my result: ', commentById)
+
+//ex 9
+let idx = null
+idx = comments.findIndex(function(specificComment){
+  return specificComment.id === 123523
+   
+})
+console.log('Exercise 9 my result: ', idx);
